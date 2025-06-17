@@ -1,0 +1,49 @@
+db.my.insertMany([
+{
+name: 'zs',
+age: 21,
+work: 'it',
+city: 'sz',
+lan: 'php',
+money: 200
+},
+{
+name: 'mch',
+age: 30,
+money: 20000,
+lan: 'golang'
+},
+{
+name: 'lisi',
+age: 50,
+money: 100000,
+lan: 'java'
+},
+{
+name: 'wangwu',
+age: 100,
+money: 400000,
+lan: 'python'
+},
+{
+name: 'zhaoliu',
+age: 70,
+money: 300,
+lan: 'golang'
+}
+]
+)
+
+
+db.createUser({
+user: "mch",
+pwd: "123456",
+roles: [
+{ role: "readWrite", db: "demo" },
+{ role: "dbAdmin", db: "demo" }
+]
+})
+
+
+mongosh --host localhost --port 27017 -u "mch" -p "123456" --authenticationDatabase "demo"
+mongosh --host localhost --port 27017 -u "mch" -p "123456" --authenticationDatabase "demo"
